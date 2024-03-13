@@ -57,3 +57,25 @@ function checkPatientExistence($bdd, $nom, $prenom, $numero_secu)
     $nbPatient = $prepareNbPatient->fetchColumn();
     return $nbPatient;
 }
+function affichConsult($linkpdo){
+
+    $sql = "SELECT * FROM consultation";
+    if($sql == false){
+        $reponse["status_code"] = 401;
+        $reponse['status_message'] = "ya un pb avec la requete";
+        $reponse['data'] = null;
+        return $reponse;
+    }
+    $reqAllFacts = $linkpdo->prepare($sql);
+    if(!$reqAllFacts->execute()){
+        $reponse["status_code"] = 401;
+        $reponse['status_message'] = "ressource non trouver";
+        $reponse['data'] = [];
+        return $reponse;
+    }
+    $reponse["status_code"] = 200;
+    $reponse['status_message'] = "gg";
+    $reponse['data'] = $reqAllFacts->fetchAll();
+    return $reponse;
+
+}
