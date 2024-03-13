@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href=../style/styleAjoutPatient.css>
+<link rel="stylesheet" href="../styleAjoutPatient.css">
 </head>
 
 <nav>
